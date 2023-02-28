@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Postcategory;
+use App\Models\Posttag;
 use App\Models\Blogpost;
 use Illuminate\Http\Request;
 
@@ -9,13 +10,16 @@ class BlogpostController extends Controller
 {
     public function index()
     {
-        $blog =  Blogpost::all();
+        $blog =  Blogpost::with('category','tag')->get();
        return view('backend.blog.index', compact('blog'));
     }
 
    public function create()
    {
-       return view('backend.blog.create');
+    $postcategory =  Postcategory::all();
+    $posttag =  Posttag::all();
+   
+       return view('backend.blog.create',compact('postcategory','posttag'));
    }
 
    public function store(Request $request)
@@ -24,7 +28,8 @@ class BlogpostController extends Controller
     $requestData = [
 
     'blog_img' =>$this ->uploadImage ($request->file('blog_img')),
-
+    'post_cat_id'=>$request->post_cat_id,
+    'post_tag_id'=>$request->post_tag_id,
     'blog_date'=> $request->blog_date,
     'blog_title' => $request->blog_title,
     'blog_detail' => $request->blog_detail,
@@ -46,7 +51,9 @@ class BlogpostController extends Controller
    public function edit($id)
 {
    $blog = Blogpost::find($id);
-   return view('backend.blog.edit', compact('blog'));
+   $postcategory =  Postcategory::all();
+   $posttag =  Posttag::all();
+   return view('backend.blog.edit', compact('blog','postcategory','posttag'));
 }
 
 public function update(Request $request, $id)
@@ -58,7 +65,8 @@ public function update(Request $request, $id)
        $requestData = [
 
                     'blog_img' =>$this ->uploadImage ($request->file('blog_img')),
-
+                    'post_cat_id'=>$request->post_cat_id,
+                    'post_tag_id'=>$request->post_tag_id,
                     'blog_date'=> $request->blog_date,
                     'blog_title' => $request->blog_title,
                     'blog_detail' => $request->blog_detail,
@@ -72,6 +80,8 @@ public function update(Request $request, $id)
                 $blog->update($requestData);
    } else {
             $requestData = [
+            'post_cat_id'=>$request->post_cat_id,
+            'post_tag_id'=>$request->post_tag_id,
             'blog_date'=> $request->blog_date,
             'blog_title' => $request->blog_title,
             'blog_detail' => $request->blog_detail,

@@ -15,6 +15,8 @@ class CreatePosttagsTable extends Migration
     {
         Schema::create('posttags', function (Blueprint $table) {
             $table->id();
+            $table->string('tag_list');
+
             $table->timestamps();
         });
     }

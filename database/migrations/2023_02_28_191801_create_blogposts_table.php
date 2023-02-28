@@ -15,6 +15,7 @@ class CreateBlogpostsTable extends Migration
     {
         Schema::create('blogposts', function (Blueprint $table) {
             $table->id();
+          
             $table->string('blog_img')->nullable();
             $table->string('blog_date')->nullable();
             $table->string('blog_comment')->nullable();
@@ -24,6 +25,14 @@ class CreateBlogpostsTable extends Migration
             $table->text('summary')->nullable();
             $table->string('logo')->nullable();
             $table->string('link')->nullable();
+             $table->unsignedBigInteger('post_cat_id')->nullable();
+             $table->unsignedBigInteger('post_tag_id')->nullable();
+             $table->foreign('post_tag_id')->references('id')->on('posttags');
+             $table->foreign('post_cat_id') ->references('id')->on('postcategories');
+           
+          
+   
+
             $table->timestamps();
         });
     }

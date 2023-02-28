@@ -42,6 +42,22 @@ Add Blog
                             @enderror
                         </div>
                         <div class="form-group">
+                         <label for="category">post_category</label>
+                        <select class="form-control" name="post_cat_id" id="post_cat_id">
+                          @foreach( $postcategory as $category)
+                       <option value="{{ $category->id }}">{{ $category->category_list}}</option>
+                         @endforeach
+                        </select>
+                        </div>
+                        <div class="form-group">
+                        <label for="tag">post_tag</label>
+                            <select class="form-control" name="post_tag_id" id="post_tag_id">
+                         @foreach ($posttag as $tag)
+                           <option value="{{$tag->id}}">{{$tag->tag_list}}</option>
+                          @endforeach
+                        </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Enter blog_date</label>
                             <input type="text" class="form-control" name="blog_date" @error('blog_date') is-invalid @enderror id="exampleInputEmail1" placeholder="blog_date">
                             @error('blog_date')

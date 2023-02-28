@@ -898,14 +898,12 @@
 
                                 <div class="widget widget-cats">
                                     <h3 class="widget-title">Categories</h3><!-- End .widget-title -->
-
+                                        @foreach($blog as $blo)
                                     <ul>
-                                        <li><a href="#">Lifestyle<span>3</span></a></li>
-                                        <li><a href="#">Shopping<span>3</span></a></li>
-                                        <li><a href="#">Fashion<span>1</span></a></li>
-                                        <li><a href="#">Travel<span>3</span></a></li>
-                                        <li><a href="#">Hobbies<span>2</span></a></li>
+                                        <li><a href="#">{{$blo->post_cat_id}}<span>3</span></a></li>
+                                        
                                     </ul>
+                                    @endforeach
                                 </div><!-- End .widget -->
 
                                 <div class="widget">
@@ -981,16 +979,18 @@
 
                                 <div class="widget">
                                     <h3 class="widget-title">Browse Tags</h3><!-- End .widget-title -->
+                                    @foreach($blog as $blo)
 
                                     <div class="tagcloud">
-                                        <a href="#">fashion</a>
-                                        <a href="#">style</a>
-                                        <a href="#">women</a>
+                                        <a href="#">{{$blo->post_tag_id}}</a>
+                                        <!-- <a href="#">style</a> -->
+                                        <!-- <a href="#">women</a>
                                         <a href="#">photography</a>
                                         <a href="#">travel</a>
                                         <a href="#">shopping</a>
-                                        <a href="#">hobbies</a>
+                                        <a href="#">hobbies</a> -->
                                     </div><!-- End .tagcloud -->
+                                    @endforeach
                                 </div><!-- End .widget -->
 
                                 <div class="widget widget-text">

@@ -35,8 +35,11 @@ Total Banners
                 <tr class="">
                     <th>Sl No</th>
                     <th> img</th>
+                    
                     <th>date</th>
                     <th>title</th>
+                    <th>category_list</th>
+                    <th>tag_list</th>
                     <th>comment</th>
                     <th>detail</th>
                     <th>summary</th>
@@ -54,6 +57,10 @@ Total Banners
 
                   <td>{{ $blog->blog_date }}</td>
                     <td>{{ $blog->blog_title }}</td>
+                    <td>{{ $blog->category?->category_list }}</td>
+                    <td>{{ $blog->tag?->tag_list }}</td>
+
+
                     <td>{{ $blog->blog_comment }}</td>
                     <td>{{ Str::substr($blog->blog_detail, 0, 15) }} .....</td>
                     <td>{{ Str::substr($blog->summary, 0, 15) }} .....</td>

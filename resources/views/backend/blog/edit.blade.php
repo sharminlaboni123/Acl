@@ -38,6 +38,22 @@ Banner Edit
                                 <input type="file" class="form-control" name="blog_img"  value="{{ $blog->blog_img }}" id="exampleInputEmail1" placeholder="Enter blog_img">
                             </div>
                             <div class="form-group">
+                         <label for="Bus">post_category</label>
+                        <select class="form-control" name="post_cat_id" id="">
+                          @foreach($postcategory  as $category)
+                       <option value="{{$category->id}}">{{$category->category_list}}</option>
+                         @endforeach
+                        </select>
+                        </div>
+                        <div class="form-group">
+                        <label for="Bus">post_tag</label>
+                            <select class="form-control" name="post_tag_id" id="">
+                         @foreach($posttag as $tag)
+                           <option value="{{$tag->id}}">{{$tag->tag_list}}</option>
+                          @endforeach
+                        </select>
+                        </div> 
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Enter blog date</label>
                                 <input type="text" class="form-control" name="blog_date" value="{{ $blog->blog_date }}" id="exampleInputEmail1" placeholder="Enter blog_date">
                             </div>

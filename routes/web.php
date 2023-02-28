@@ -18,6 +18,9 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\PostcategoryController;
+use App\Http\Controllers\PosttagController;
+
 use App\Models\Footermiddlefull;
 use App\Models\Futter;
 
@@ -381,6 +384,29 @@ Route::prefix('futters')->group(function()
     Route::patch('/{id}/update',[FutterController::class, 'update'])->name('footer_bottom.update');
     Route::delete('/{id}/destroy',[FutterController::class, 'destroy'])->name('footer_bottom.destroy');
 });
+//postcategory
+Route::prefix('postcategorys')->group(function()
+{
+    
+    Route::get('/index',[PostcategoryController::class, 'index'])->name('postcategory.index');
+    Route::get('/create',[PostcategoryController::class, 'create'])->name('postcategory.create');
+    Route::post('/store',[PostcategoryController::class, 'store'])->name('postcategory.store');
+    Route::get('/{id}/edit',[PostcategoryController::class, 'edit'])->name('postcategory.edit');
+    Route::patch('/{id}/update',[PostcategoryController::class, 'update'])->name('postcategory.update');
+    Route::delete('/{id}/destroy',[PostcategoryController::class, 'destroy'])->name('postcategory.destroy');
+});
+//posttag
+Route::prefix('posttags')->group(function()
+{
+    
+    Route::get('/index',[PosttagController::class, 'index'])->name('posttag.index');
+    Route::get('/create',[PosttagController::class, 'create'])->name('posttag.create');
+    Route::post('/store',[PosttagController::class, 'store'])->name('posttag.store');
+    Route::get('/{id}/edit',[PosttagController::class, 'edit'])->name('posttag.edit');
+    Route::patch('/{id}/update',[PosttagController::class, 'update'])->name('posttag.update');
+    Route::delete('/{id}/destroy',[PosttagController::class, 'destroy'])->name('posttag.destroy');
+});
+
 
 
 // index page show controller

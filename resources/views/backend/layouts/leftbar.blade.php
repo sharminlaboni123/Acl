@@ -126,7 +126,26 @@
                         <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Add blog</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javaScript:void();">
+                        <img src="backend/assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>postcategory</span><i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('postcategory.index') }}"><i class="mdi mdi-circle"></i>postcategory List</a></li>
+                        <li><a href="{{ route('postcategory.create') }}"><i class="mdi mdi-circle"></i>Add postcategory</a></li>
 
+                    </ul>
+                </li>
+                <li>
+                    <a href="javaScript:void();">
+                        <img src="backend/assets/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>posttag</span><i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('posttag.index') }}"><i class="mdi mdi-circle"></i>posttag List</a></li>
+                        <li><a href="{{ route('posttag.create') }}"><i class="mdi mdi-circle"></i>Add posttag</a></li>
+
+                    </ul>
+                </li> 
                 <li>
                     <a href="javaScript:void();">
                       <img src="backend/assets/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Banner</span><i class="feather icon-chevron-right pull-right"></i>
